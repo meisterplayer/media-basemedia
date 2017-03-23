@@ -6,7 +6,7 @@ This plugin allows basic media types to be played. They are directly put in the 
 Getting started
 -----------
 
-BaseMedia has no config options so it only needs to be configured for use
+Load the plugin by adding a `BaseMedia` configuration object to the Meister initialisation options. As of yet there are no configuration options for BaseMedia so an empty object is enough.
 
 Example:
 
@@ -29,7 +29,7 @@ Supported types
 
 Currently the following types are supported:
 
-- mp4 - For MP4 playback.
-- mp3 - For MP3 playback.
-- icecast - For Icecast streams.
-- m3u8 - Only for Samsung android devices that do not support the MediaSource API. For a HLS plugin please visit [HLS plugin for Meister](https://github.com/meisterplayer/media-hls)
+- *mp4* - For MP4 playback.
+- *mp3* - For MP3 playback.
+- *icecast* - For Icecast streams.
+- *m3u8* - **NOTE**: Only for Samsung android devices that do not support the MediaSource API. For a HLS plugin please visit [HLS plugin for Meister](https://github.com/meisterplayer/media-hls)
