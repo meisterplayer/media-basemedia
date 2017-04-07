@@ -15,7 +15,11 @@
   "license": "Apache-2.0",
   "dependencies": {},
   "devDepencies": {
-      "@npm-wearetriple/js-dev": "^2.3.3",
-      "gulp": "^3.9.1"
+    "@npm-wearetriple/js-dev": "^2.3.3",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-es2017": "^6.22.0"
   }
 }
