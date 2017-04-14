@@ -3,6 +3,30 @@ BaseMedia plugin for meister
 
 This plugin allows basic media types to be played. They are directly put in the video element.
 
+Installation
+-----
+
+You can install this plugin through npm:
+
+```
+npm install meister-plugin-basemedia
+```
+
+and importing it
+
+``` JavaScript
+import Meister from 'meisterplayer';
+import BaseMedia from 'meister-plugin-basemedia'
+```
+
+or using a script tag:
+
+``` html
+<script src="Meister.js"></script>
+<script src="BaseMedia.js"></script>
+```
+
+
 Getting started
 -----------
 
