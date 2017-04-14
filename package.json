@@ -1,6 +1,6 @@
 {
   "name": "meister-plugin-basemedia",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Meister plugin for playback of basic media types (mp4, mp3, etc).",
   "main": "dist/BaseMedia.js",
   "keywords": [
@@ -8,6 +8,10 @@
     "video",
     "plugin"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meisterplayer/media-basemedia.git"
+  },
   "author": "Triple",
   "license": "Apache-2.0",
   "dependencies": {},
