@@ -1,11 +1,8 @@
 {
-  "name": "@npm-wearetriple/meister-plugin-basemedia",
-  "version": "1.0.0",
+  "name": "meister-plugin-basemedia",
+  "version": "5.0.0",
   "description": "Meister plugin for playback of basic media types (mp4, mp3, etc).",
   "main": "dist/BaseMedia.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "meister",
     "video",
@@ -14,11 +11,9 @@
   "author": "Triple",
   "license": "Apache-2.0",
   "dependencies": {},
-  "devDepencies": {
-    "@npm-wearetriple/js-dev": "^2.3.3",
-    "gulp": "^3.9.1"
-  },
   "devDependencies": {
+    "@npm-wearetriple/js-dev": "^2.3.3",
+    "gulp": "^3.9.1",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-es2017": "^6.22.0"
   }
