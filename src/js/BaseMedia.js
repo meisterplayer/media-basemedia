@@ -135,5 +135,6 @@ class BaseMedia extends Meister.MediaPlugin {
 }
 
 Meister.registerPlugin(BaseMedia.pluginName, BaseMedia);
+Meister.registerPlugin('baseMedia', BaseMedia);
 
 export default BaseMedia;
