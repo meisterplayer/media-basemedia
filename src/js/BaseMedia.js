@@ -4,7 +4,7 @@ class BaseMedia extends Meister.MediaPlugin {
 
         this.player = null;
 
-        this.supports = ['mp4', 'mp3', 'icecast'];
+        this.supports = ['mp4', 'mp3', 'icecast', 'mov'];
 
         // HLS behaves like mp4 in samsung devices
         if (this.meister.browser.isSamsung && !window.MediaSource) {
