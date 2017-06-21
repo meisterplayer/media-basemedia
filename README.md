@@ -56,4 +56,5 @@ Currently the following types are supported:
 - *mp4* - For MP4 playback.
 - *mp3* - For MP3 playback.
 - *icecast* - For Icecast streams.
+- *mov* - for MOV-files.
 - *m3u8* - **NOTE**: Only for Samsung android devices that do not support the MediaSource API. For a HLS plugin please visit [HLS plugin for Meister](https://github.com/meisterplayer/media-hls)
