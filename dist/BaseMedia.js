@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -101,6 +101,12 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
+var _package = __webpack_require__(2);
+
+var _package2 = _interopRequireDefault(_package);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -117,7 +123,7 @@ var BaseMedia = function (_Meister$MediaPlugin) {
 
         _this.player = null;
 
-        _this.supports = ['mp4', 'mp3', 'icecast'];
+        _this.supports = ['mp4', 'mp3', 'icecast', 'mov'];
 
         // HLS behaves like mp4 in samsung devices
         if (_this.meister.browser.isSamsung && !window.MediaSource) {
@@ -263,6 +269,11 @@ var BaseMedia = function (_Meister$MediaPlugin) {
         get: function get() {
             return 'BaseMedia';
         }
+    }, {
+        key: 'pluginVersion',
+        get: function get() {
+            return _package2.default.version;
+        }
     }]);
 
     return BaseMedia;
@@ -275,6 +286,36 @@ exports.default = BaseMedia;
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"name": "@meisterplayer/plugin-basemedia",
+	"version": "5.1.0",
+	"description": "Meister plugin for playback of basic media types (mp4, mp3, etc).",
+	"main": "dist/BaseMedia.js",
+	"keywords": [
+		"meister",
+		"video",
+		"plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/meisterplayer/media-basemedia.git"
+	},
+	"author": "Triple",
+	"license": "Apache-2.0",
+	"dependencies": {},
+	"devDependencies": {
+		"meister-gulp-webpack-tasks": "^1.0.6",
+		"meister-js-dev": "^3.1.0",
+		"gulp": "^3.9.1",
+		"babel-preset-es2015": "^6.24.0",
+		"babel-preset-es2017": "^6.22.0"
+	}
+};
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(0);
