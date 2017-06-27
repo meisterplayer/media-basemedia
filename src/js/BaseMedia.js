@@ -1,3 +1,5 @@
+import packageJson from '../../package.json';
+
 class BaseMedia extends Meister.MediaPlugin {
     constructor(config, meister) {
         super(config, meister);
@@ -14,6 +16,10 @@ class BaseMedia extends Meister.MediaPlugin {
 
     static get pluginName() {
         return 'BaseMedia';
+    }
+
+    static get pluginVersion() {
+        return packageJson.version;
     }
 
     isItemSupported(item) {
