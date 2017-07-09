@@ -2,3 +2,4 @@
 node_modules/
 docs/js-docs/
 build/
+coverage/
