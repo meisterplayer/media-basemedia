@@ -1,6 +1,6 @@
 {
   "name": "@meisterplayer/plugin-basemedia",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "description": "Meister plugin for playback of basic media types (mp4, mp3, etc).",
   "main": "dist/BaseMedia.js",
   "keywords": [

@@ -206,10 +206,6 @@ var BaseMedia = function (_Meister$MediaPlugin) {
                     duration: duration
                 });
             });
-
-            this.on('_playerTimeUpdate', this._onPlayerTimeUpdate.bind(this));
-            this.on('_playerSeek', this._onPlayerSeek.bind(this));
-            this.on('requestSeek', this.onRequestSeek.bind(this));
         }
     }, {
         key: 'unload',
@@ -222,15 +218,15 @@ var BaseMedia = function (_Meister$MediaPlugin) {
         key: '_onPlayerTimeUpdate',
         value: function _onPlayerTimeUpdate() {
             this.meister.trigger('playerTimeUpdate', {
-                currentTime: this.meister.currentTime,
-                duration: this.meister.duration
+                currentTime: this.player.currentTime,
+                duration: this.player.duration
             });
         }
     }, {
         key: '_onPlayerSeek',
         value: function _onPlayerSeek() {
-            var currentTime = this.meister.currentTime;
-            var duration = this.meister.duration;
+            var currentTime = this.player.currentTime;
+            var duration = this.player.duration;
             var relativePosition = currentTime / duration;
 
             this.meister.trigger('playerSeek', {
@@ -245,24 +241,49 @@ var BaseMedia = function (_Meister$MediaPlugin) {
             var targetTime = void 0;
 
             if (!isNaN(e.relativePosition)) {
-                targetTime = e.relativePosition * this.meister.duration;
+                targetTime = e.relativePosition * this.player.duration;
             } else if (!isNaN(e.timeOffset)) {
-                targetTime = this.meister.currentTime + e.timeOffset;
+                targetTime = this.player.currentTime + e.timeOffset;
             }
 
             // Check whether we are allowed to seek forward.
-            if (this.blockSeekForward && targetTime > this.meister.currentTime) {
+            if (this.blockSeekForward && targetTime > this.player.currentTime) {
                 return;
             }
 
             if (Number.isFinite(targetTime)) {
-                this.meister.currentTime = targetTime;
+                this.player.currentTime = targetTime;
             }
         }
     }, {
         key: 'currentItem',
         get: function get() {
             return this.item;
+        }
+    }, {
+        key: 'duration',
+        get: function get() {
+            if (!this.player) {
+                return NaN;
+            }
+
+            return this.player.duration;
+        }
+    }, {
+        key: 'currentTime',
+        get: function get() {
+            if (!this.player) {
+                return NaN;
+            }
+
+            return this.player.currentTime;
+        },
+        set: function set(time) {
+            if (!this.player) {
+                return;
+            }
+
+            this.player.currentTime = time;
         }
     }], [{
         key: 'pluginName',
@@ -290,7 +311,7 @@ exports.default = BaseMedia;
 
 module.exports = {
 	"name": "@meisterplayer/plugin-basemedia",
-	"version": "5.1.0",
+	"version": "5.2.0",
 	"description": "Meister plugin for playback of basic media types (mp4, mp3, etc).",
 	"main": "dist/BaseMedia.js",
 	"keywords": [
@@ -311,6 +332,9 @@ module.exports = {
 		"gulp": "^3.9.1",
 		"babel-preset-es2015": "^6.24.0",
 		"babel-preset-es2017": "^6.22.0"
+	},
+	"peerDependencies": {
+		"@meisterplayer/meisterplayer": ">= 5.1.0"
 	}
 };
 
