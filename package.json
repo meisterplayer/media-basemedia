@@ -13,8 +13,11 @@
     "url": "https://github.com/meisterplayer/media-basemedia.git"
   },
   "scripts": {
+    "lint": "eslint ./src/js",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "build": "gulp build",
+    "dist": "gulp build:min && gulp build:dist"
   },
   "author": "Triple",
   "license": "Apache-2.0",

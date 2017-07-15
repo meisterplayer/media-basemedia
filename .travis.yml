@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- node
+before_install: npm i -g npm@latest;
+install:
+- npm install
+script:
+- npm run lint
+- npm run test
+- npm run build
+- npm run dist
+after_deploy:
+- sh ./update-release.sh
+deploy:
+  provider: npm
+  email: license@triple-it.nl
+  api_key:
+    secure: pXQXQFI0oTJjCC46VZ9DIX1NDoeC8li+1p9c37K3nMELAZZpKrl90ww3Kj33XGUQJAA2uyEk7TZkq7DhWC7v3JAu6H1L0TfNEz+BzNTy2TRqsowuZ1Xg53N2Zs/paVHoVczPbPE7XqgjPh2o5JQi0g1UAD4Rx3phyqv8ggpQrUeJVT6W56qOpF0/UZhrLok1GoUU53LwarMyFm2Mz2AkehmJo99uE/oamaHyJ7b50OF/s2BpLbnGbxSwgYSYJ5o/UObfqYyBmMl3SbkUw4nM7d8TSpHDqrHwo8k08ojDbA2boNA8XK3KzjSOZre6IrNVmp1yx37MiZZUuxst+/N6OI5xL5VOJyeF+lnjUQWIrOJunes5ROmiPxby/8T51SMbke22cRbFJJQfkd7reGhKWrVZZH8KfdcnxS+KdsYRqysZ+CD76HYmun/3gmC3OXTtRTdk74Ag8bnlFORAeKCuUuX3EiqJlmcIfB9tnvK4vFFixu29znIMkk/SvyGYLI6CoGH8DlVWAQh1V+fPAA6UjHqXFUIINmItPEYSDFRBxQSUfNYMbDfW4EQX+Od7oCAbNjiO2ZtQsLUCFwJNxdyOxnq7BQH7Zf915wWWepODBovyp5pbZH3ZPVi4vpvgIOI2yHPB/pUhyLiU74bp0W/wao30HUvGjWCg7doflYaaOGc=
+  on:
+    tags: true
+    repo: meisterplayer/media-basemedia
+env:
+  global:
+  - secure: 04Boq7mBHQB2Qq3Y7GuLgsPQZ8rC3wyGL8wA1lGbbbcLyO3b88dC4iDui/mPyksj0nGeFwr3OAZDtH+If69HVo88fDlrLzOw3L7XnRHVzA739fECtOQQgK5ykOqmKAGTO79Heo3/F7gtXeWM2m92S6tqnvQFeWubhrEHy/bA1iDcEj0S3+ov6htSife9kRwqlLffviuzLiIFHUTo1jAtImr+z10m1fcMC8YrXgCO7UU5sBRoKBjAb0P5CdpI6dozfQhniEmvm7TItNw5bqpX9RhjvrKD/arOu9eubR997BFUsMe3kaD5qT1oZLPKFYQpVfZL5XBCum9uAvBZZ7MbfwEVxKyOso22WwvMUKmNBVgovP5PXfT7r2COQAiX9rD02ihXky4yMbskb5VfAJqsaypd2hRDtC3WRzLDDpVXX/WEz+zSNz7R3x4Prr+8SQywFZzi4QHQLTVOwafYPVgaDI51GWTmt3spn2sFBMIyKm4w2zAjKQHp9DLPbIEUUp/2xCSK6GIpqt0yyhEEXn5qjyUuqkPiI9/wBSwEeM8hj2rbAtHALWGdji62E2in42PegqHVsVkvHHRtssvPmcI4KXFRPEKYYpwfsWLAJC2zk/lMOp6IqD9lQ2yXtwxo2mNlRy/AxFSRDN2eb3f5PuIKBMDZ/zAMOuSvDiiyW1s7BxU=
