@@ -22,3 +22,13 @@ deploy:
 env:
   global:
   - secure: 04Boq7mBHQB2Qq3Y7GuLgsPQZ8rC3wyGL8wA1lGbbbcLyO3b88dC4iDui/mPyksj0nGeFwr3OAZDtH+If69HVo88fDlrLzOw3L7XnRHVzA739fECtOQQgK5ykOqmKAGTO79Heo3/F7gtXeWM2m92S6tqnvQFeWubhrEHy/bA1iDcEj0S3+ov6htSife9kRwqlLffviuzLiIFHUTo1jAtImr+z10m1fcMC8YrXgCO7UU5sBRoKBjAb0P5CdpI6dozfQhniEmvm7TItNw5bqpX9RhjvrKD/arOu9eubR997BFUsMe3kaD5qT1oZLPKFYQpVfZL5XBCum9uAvBZZ7MbfwEVxKyOso22WwvMUKmNBVgovP5PXfT7r2COQAiX9rD02ihXky4yMbskb5VfAJqsaypd2hRDtC3WRzLDDpVXX/WEz+zSNz7R3x4Prr+8SQywFZzi4QHQLTVOwafYPVgaDI51GWTmt3spn2sFBMIyKm4w2zAjKQHp9DLPbIEUUp/2xCSK6GIpqt0yyhEEXn5qjyUuqkPiI9/wBSwEeM8hj2rbAtHALWGdji62E2in42PegqHVsVkvHHRtssvPmcI4KXFRPEKYYpwfsWLAJC2zk/lMOp6IqD9lQ2yXtwxo2mNlRy/AxFSRDN2eb3f5PuIKBMDZ/zAMOuSvDiiyW1s7BxU=
+notifications:
+  slack:
+    rooms:
+      secure: ltarVsw5DOMVeqWGu7biFOMqjBvjl11TCzMz0LlrMJ53WGDyNJOCEQI05/mx2SDlBAhnPsarxMXRne0/1mm5OU+NxVCO0M0P32HCgjT1iXOKI4Ep+aUiAJ9tEec49BH2PDaWVNp1shI+eVBJZCyBWimLmN24Iela89vHF9iYQbga7O99oSphixkx/QJfsDt2YR1WP9Qw3NN5UFXHF1fdU3BtUgkolUlqsQxTvuHqeXtAeQZHaSaKUaMwir8YHGi9Gc0pWJ3JWwNruzWaFT6rteLVbwbC4sbFCoe8t1MMwkcZxU/WUEWcJqPqr9a1LadEwu1KDjFNDcUuROhTNHKsUw2uGNXaDnlnRn3Ky02B8wjZ4HCm2WSu3+5fUn1Oy9dTBd2bLHzwzY3/0PJwgcKM4qhS074BwgwoIQxPI8uGEa7/URryOIitUs73V59wYKpHTHRdnPRZsgtPvz8Y9MtN9/LUs3Ka/JIMjq7lyV/alS2mw9P9QljumRpU6d0D4u7l6iaweYofX7RUSxvW6fXbbRw5Bh9XvTS4Bf5EhfSIRSfTgQSiGUn3ABNVM+6AgY+AhsTkUgyKqa3bKEwURG01vqA+fkBBaLUC+BByopgDtLuf34hV2jfDoXTv+JcwuioGSAf2lpwuwpXmaXCgkfbpmEHD+EjWJoMzskaOixTeoMg=
+    on_success: always
+    on_failure: always
+    template:
+        - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_name}@%{branch} by %{author}\n"
+        - "%{commit_subject}\n"
+        - "%{result} in %{duration}"
