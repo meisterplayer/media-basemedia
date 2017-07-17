@@ -1,4 +1,4 @@
-import MeisterMock from './MeisterMock'; // This should go in a separate module.
+import '@meisterplayer/meister-mock';
 import BaseMedia from '../src/js/BaseMedia';
 
 const PLUGIN_NAME = 'BaseMedia';

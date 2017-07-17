@@ -10,7 +10,7 @@ script:
 - npm run build
 - npm run dist
 after_deploy:
-- sh ./update-release.sh
+- sh ./scripts/update-release.sh
 deploy:
   provider: npm
   email: license@triple-it.nl
@@ -21,14 +21,15 @@ deploy:
     repo: meisterplayer/media-basemedia
 env:
   global:
-  - secure: 04Boq7mBHQB2Qq3Y7GuLgsPQZ8rC3wyGL8wA1lGbbbcLyO3b88dC4iDui/mPyksj0nGeFwr3OAZDtH+If69HVo88fDlrLzOw3L7XnRHVzA739fECtOQQgK5ykOqmKAGTO79Heo3/F7gtXeWM2m92S6tqnvQFeWubhrEHy/bA1iDcEj0S3+ov6htSife9kRwqlLffviuzLiIFHUTo1jAtImr+z10m1fcMC8YrXgCO7UU5sBRoKBjAb0P5CdpI6dozfQhniEmvm7TItNw5bqpX9RhjvrKD/arOu9eubR997BFUsMe3kaD5qT1oZLPKFYQpVfZL5XBCum9uAvBZZ7MbfwEVxKyOso22WwvMUKmNBVgovP5PXfT7r2COQAiX9rD02ihXky4yMbskb5VfAJqsaypd2hRDtC3WRzLDDpVXX/WEz+zSNz7R3x4Prr+8SQywFZzi4QHQLTVOwafYPVgaDI51GWTmt3spn2sFBMIyKm4w2zAjKQHp9DLPbIEUUp/2xCSK6GIpqt0yyhEEXn5qjyUuqkPiI9/wBSwEeM8hj2rbAtHALWGdji62E2in42PegqHVsVkvHHRtssvPmcI4KXFRPEKYYpwfsWLAJC2zk/lMOp6IqD9lQ2yXtwxo2mNlRy/AxFSRDN2eb3f5PuIKBMDZ/zAMOuSvDiiyW1s7BxU=
+  - secure: Srf22hPaUHYmeGwhMqt0PoRoDi92q7tHgFMElkt2wmV2wyGNA0BoiQDK8zb/Ozo8c+9aqHWiesri7TTosyLEfmwUAej3+xDf0vgRW0X8lBPW1HLiIrROgxNbCBCDnuHfW87FVqk35Ow9ldX/aWflwvhqpihNT6Kj23zE6vOMDvcfu5TnFzlfF0UGjI5zur4doXf6xdRaLdQRPNRAAuU+BfgELxYyTT2Vgt/ywfIQghFQcRK8MmGWJrMghbvR8Rw14dgFO1c5XgHJSO0DPbJ2N90qXN4qMMBxUxqESGQ3q6qetV4S+ScSYNjaIssiKaeObMoTjYj/SmXwCc5qk4eAT3k2zuIUGV+MTz81hY0AIh0Pl8lPsGCUyYP8Q7V1/GoDWN8PppHZRuMFdRuXrb/Bh+TyfaG5armhzzdTbKt7INXj6jQX8MMzP9FFtvQTG7FRcvaaFxK4vCuup3cdmqsQY4rsqFzsPx4Jf3i603yfySOTX18+LI/UOvsVyCk9HtLdJNfoouqzYV1vl4FQ5YPby6K5fvZjcJqMy6CUFopDlzzvL8mIrh7+AR/G98L26D2aAy55sNiYqBOhfloehgGfgnZFlxhDl8xCe5PPq22oImbJC2PYzsHgKAz2tHj6xyy/HS3KYjLSM5OV//qik0CRgghfDhOoQegQgaNLDSvVQZ0=
+  - secure: e4bLPN0wUnNTy7dR2puTcxVeukXI4LVqNZ+4qvbjHkVbrqPG90/NNSa8ULrffU654qO8aZplgMXIUJZ7ybxRiyGmQcuBEcF74zAMsm1qNSmOo31Drapir3+5utX97f1OO8IpnNuGcSCqbyTeEC31a8VuqiSlvCgAOQ4Lmfppc/6f9AN3omdhZWNWGZt4PcREqcLeoZfcAK33Ur/gjyl7fUtYW8uE/VEWncI133Tyjfglnf1BUhiEkuE8EIBKnMyjE/r8JNmatyr5sWqQ9rppWdh1bYpkHwj1jH4lXKVs3JOCbMBQy3a2yvzuEMaHgNqzABhK9Mke7JVLBY8COixlOalc2ghsn9WcYtRgIBFLfK0SIfjvn6XmjwIqy78OOQsLSz9ctCrgzjuiB6rVKCM0nAPhpf9Rx86EzclOOBiiVwhf8q1JV0D78rgUO6WLr+eMmStukQDVzB6itYKypkRdAyesDDT/sKfxO+0lxXXhMtYyQwkxkGwfkWAlURJLSGwFhMkPkPFNwTzosNBdRJWttihqZ08W8aHmEOep+vN8MSRzNDDVSYgRubHABWSGIjji1S2XsDZYz4ecnFw0ohG1UuT89B6yb5IowCQ00iQtv7XuRhiDHeIfZusuj0JGBnPWBmFDZbvv5pKYqSuWmthvNFbMIad4/OVGRn+Qj/v9/T0=
 notifications:
   slack:
     rooms:
-      secure: ltarVsw5DOMVeqWGu7biFOMqjBvjl11TCzMz0LlrMJ53WGDyNJOCEQI05/mx2SDlBAhnPsarxMXRne0/1mm5OU+NxVCO0M0P32HCgjT1iXOKI4Ep+aUiAJ9tEec49BH2PDaWVNp1shI+eVBJZCyBWimLmN24Iela89vHF9iYQbga7O99oSphixkx/QJfsDt2YR1WP9Qw3NN5UFXHF1fdU3BtUgkolUlqsQxTvuHqeXtAeQZHaSaKUaMwir8YHGi9Gc0pWJ3JWwNruzWaFT6rteLVbwbC4sbFCoe8t1MMwkcZxU/WUEWcJqPqr9a1LadEwu1KDjFNDcUuROhTNHKsUw2uGNXaDnlnRn3Ky02B8wjZ4HCm2WSu3+5fUn1Oy9dTBd2bLHzwzY3/0PJwgcKM4qhS074BwgwoIQxPI8uGEa7/URryOIitUs73V59wYKpHTHRdnPRZsgtPvz8Y9MtN9/LUs3Ka/JIMjq7lyV/alS2mw9P9QljumRpU6d0D4u7l6iaweYofX7RUSxvW6fXbbRw5Bh9XvTS4Bf5EhfSIRSfTgQSiGUn3ABNVM+6AgY+AhsTkUgyKqa3bKEwURG01vqA+fkBBaLUC+BByopgDtLuf34hV2jfDoXTv+JcwuioGSAf2lpwuwpXmaXCgkfbpmEHD+EjWJoMzskaOixTeoMg=
+      secure: hKJuLa8ZhLpWcMO4jBf4Ik8+kffM+eFzJFEgswKoS/jyLx5XiJJKhS4/4gFtRYb8bihrAJ0ekHiH17RoE1YoxQSKISbzN8Qp83JOAHysnBC2VxfV6kAGxlP4yHD2fOF9c6UfAKsqD5ZkhafSh+6gd72Qzf7E3zIQEoFZDnNLaWiY/Fr+UQNwbosoyIScGliZHD75AFXWvoBQYAZgo5fym6A5KilaZnN9YKzN1sLnvH7oe9EraMQ4LXwHVhBUNtwm7jezgavrZ8/NQFQBysVDkB0vEfkBxNgRQ5YObLQl8LJHjv6Akw56/uBb827n5Cmc64kXQrHI1+hS4J6LFwYOIeCWwi/UU8VbTL7R2lETitqO+fmZJHiR5CWE2rbqGF4YXBx6X2/miqdeEkLqxlbgdIep2yXbrP81ZBVFQU2pu0XY/4cr7GaQ1DaRoqs7zZsUzpkEb2LtW3S2751XqH7RdJErdwQt2myK2Idz19MKhEwF8DZf9M/RfkWUicOHzYz4nfFbWB04mTGxv7evy5iWli+7HqckjNESi9e6v2ojOcfcAylG8Hoa2oY0M5nKAWCXC4IkWtWmacI7Ugb6e3hUnCqsOa41UlvBJbRZBUs1FP8PnzB4rVWhJsnVdejCXx7VcEpeVF3+jqXzIMI3zzjjttucctWIcBmIIzgFh/LxEEI=
     on_success: always
     on_failure: always
-    template:
-        - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_name}@%{branch} by %{author}\n"
-        - "%{commit_subject}\n"
-        - "%{result} in %{duration}"
+    template: |-
+      Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_name}@%{branch} by %{author}
+      %{result} in %{duration}
+      %{commit_subject}

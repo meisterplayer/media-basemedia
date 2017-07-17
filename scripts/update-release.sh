@@ -4,3 +4,10 @@ data='{"tag_name":"'"${TRAVIS_TAG}"'", "name":"'"$TRAVIS_TAG"'", "body":"'"$text
 curl -XPOST -H "Authorization: token ${GH_TOKEN}" \
     --data "$data" \
     "https://api.github.com/repos/${TRAVIS_REPO_SLUG}/releases"
+
+# Also post a notification to the slack channel.
+textslack=`echo "$text" | sed -e 's:\*\*:\*:g' -e 's:^\*:-:g' -e 's:### ::g' -e 's:(\[.*))::g';` # Clean up the markdown.
+packagename=`cat package.json | grep name | sed -e 's:"name"\: "\(.*\)",:\1:g' -e 's: ::g';` # Get the package name.
+packageversion=`cat package.json | grep version | sed -e 's:"version"\: "\(.*\)",:\1:g' -e 's: ::g';` # Get the package version.
+
+curl -X POST --data-urlencode 'payload={"mrkdwn": true, "text": "Release: '"$packagename"'@'"$packageversion"'!", "attachments":[{ "fallback": "Release notes.", "text": "'"$textslack"'", "pretext": "Release notes:", "color": "good", "mrkdwn_in": ["text"] }]}' "$SLACK_HOOK_URL"

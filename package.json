@@ -26,6 +26,7 @@
     "@meisterplayer/meisterplayer": ">= 5.1.0"
   },
   "devDependencies": {
+    "@meisterplayer/meister-mock": "^1.0.0",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-es2017": "^6.22.0",
     "gulp": "^3.9.1",
