@@ -115,6 +115,7 @@ class BaseMedia extends Meister.MediaPlugin {
         super.unload();
 
         this.item = null;
+        this.player = null;
     }
 
     _onPlayerTimeUpdate() {
