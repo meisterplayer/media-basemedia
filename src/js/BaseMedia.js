@@ -139,10 +139,12 @@ class BaseMedia extends Meister.MediaPlugin {
     onRequestSeek(e) {
         let targetTime;
 
-        if (!isNaN(e.relativePosition)) {
+        if (Number.isFinite(e.relativePosition)) {
             targetTime = e.relativePosition * this.player.duration;
-        } else if (!isNaN(e.timeOffset)) {
+        } else if (Number.isFinite(e.timeOffset)) {
             targetTime = this.player.currentTime + e.timeOffset;
+        } else if (Number.isFinite(e.targetTime)) {
+            targetTime = e.targetTime;
         }
 
         // Check whether we are allowed to seek forward.
