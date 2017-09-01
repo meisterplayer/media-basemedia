@@ -53,7 +53,7 @@ class BaseMedia extends Meister.MediaPlugin {
 
                 resolve(item);
             } else {
-                reject(`${this.name}: Unable to play item ${item.src}, no suitable player available.`); //eslint-disable-line
+                reject(`${this.name}: Unable to play item ${item.src}, no suitable player available.`);
             }
         });
     }
