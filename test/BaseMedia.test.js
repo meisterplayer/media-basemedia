@@ -73,34 +73,30 @@ describe('BaseMedia', () => {
     });
 
     describe('isItemSupported', () => {
-        /**
-         * Tests whether a isItemSupported call resolves with the expected result.
-         * @param {Object} typeObject Object describing the type to test and
-         * the expected result.
-         */
-        async function testTypeSupport(typeObject) {
-            const ITEM_STUB = { src: SRC_STUB, type: typeObject.type };
+        TEST_TYPES_DEFAULT.forEach((typeObject) => {
+            test('It should resolve items with the appropriate result for most browsers', async () => {
+                const ITEM_STUB = { src: SRC_STUB, type: typeObject.type };
 
-            const result = baseMedia.isItemSupported(ITEM_STUB);
-            await expect(result).resolves.toEqual({
-                supported: typeObject.supported,
+                const result = baseMedia.isItemSupported(ITEM_STUB);
+                await expect(result).resolves.toEqual({
+                    supported: typeObject.supported,
+                });
             });
-        }
-
-        test('It should resolve items with the appropriate result for most browsers', async () => {
-            expect.assertions(TEST_TYPES_DEFAULT);
-
-            TEST_TYPES_DEFAULT.forEach(testTypeSupport);
         });
 
-        test('It should resolve items with the appropriate result for Samsung browsers', async () => {
-            browserMock = { isSamsung: true };
-            meisterInstanceMock = { browser: browserMock };
-            baseMedia = new BaseMedia(baseMediaConfigMock, meisterInstanceMock);
+        TEST_TYPES_SAMSUNG.forEach((typeObject) => {
+            test('It should resolve items with the appropriate result for Samsung browsers', async () => {
+                browserMock = { isSamsung: true };
+                meisterInstanceMock = { browser: browserMock };
+                baseMedia = new BaseMedia(baseMediaConfigMock, meisterInstanceMock);
 
-            expect.assertions(TEST_TYPES_SAMSUNG);
+                const ITEM_STUB = { src: SRC_STUB, type: typeObject.type };
 
-            TEST_TYPES_SAMSUNG.forEach(testTypeSupport);
+                const result = baseMedia.isItemSupported(ITEM_STUB);
+                await expect(result).resolves.toEqual({
+                    supported: typeObject.supported,
+                });
+            });
         });
     });
 
